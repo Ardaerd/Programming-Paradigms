@@ -1,0 +1,3 @@
+/home/arda/Cs_321/Lecture_1/build-lec_1-Desktop-Debug/CMakeFiles/lec_1.dir
+/home/arda/Cs_321/Lecture_1/build-lec_1-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/arda/Cs_321/Lecture_1/build-lec_1-Desktop-Debug/CMakeFiles/rebuild_cache.dir
