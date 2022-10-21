@@ -23,11 +23,12 @@ In the first case, you would be returning a reference to the data. If your funct
 			return localString;
 		}
 	
-	You would probably get some compiler errors, since you are returning a reference to a string that was initialized in the stack for that function. On the function return, that data location is no longer valid. Typically, you would wnat to return a reference to a class member or something like that.
+You would probably get some compiler errors, since you are returning a reference to a string that was 
+initialized in the stack for that function. On the function return, that data location is no longer valid. Typically, you would wnat to return a reference to a class member or something like that.
 	
-	The second function above return a pointer in actual memory, so it would stay at the same. You would have to check for NULL-pointers, though.
+The second function above return a pointer in actual memory, so it would stay at the same. You would have to check for NULL-pointers, though.
 	
-	Finally, in third case, the data returned would be copied into the return value for the caller. So if your function was like this:
+Finally, in third case, the data returned would be copied into the return value for the caller. So if your function was like this:
 	
 		string foo() {
 			string localString = "Hello!";
