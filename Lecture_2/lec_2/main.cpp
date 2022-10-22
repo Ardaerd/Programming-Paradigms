@@ -36,15 +36,15 @@ void printVector(const Vector2d& v) {
 
 int main()
 {
-    Vector2d A(1,5);
-    printVector(A);
+    Vector2d* A = new Vector2d(1,5);
+    printVector(*A);
 
 
     Vector2d B(-1,8);
     printVector(B);
 
     // Giving function the objects
-    Vector2d C = addVectors(A, B);
+    Vector2d C = addVectors(*A, B);
     printVector(C);
 
     cout << "(" << C.a << "," << C.b << ")" << endl;
