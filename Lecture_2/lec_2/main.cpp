@@ -28,8 +28,8 @@ Vector2d addVectors(Vector2d& K, Vector2d& L) {
 }
 
 // For printing the content of the vector
-void printVector(Vector2d& v) {
-    v.a++; // In this code we can read and write into to the contents of the object
+void printVector(const Vector2d& v) {
+    // With using const this function can only read the contents of object. Writing to the object is not available
     std::cout << "Content of the Vector: " << "(" << v.a << "," << v.b << ")" << std::endl;
 }
 
