@@ -126,3 +126,124 @@ So a new keyword, class was introduced to be exactly like a struct, but private 
 If C++ had come from scratch, with no history, then it would probably have only one such keyword. It also probably wouldn't have made the impact it made.
 
 In general, people will tend to use struct when they are doing something like how structs are used in C; public members, no constructor (as long as it isn't in a union, you can have constructors in structs, just like with classes, but people tend not to), no virtual methods, etc. Since languages are as much to communicate with people reading the code as to instruct machines (or else we'd stick with assembly and raw VM opcodes) it's a good idea to stick with that.
+
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+- Const Keyword:
+The various functions of the const keyword which is found in C++ are discussed. Whenever const keyword is attached with any method(), variable, pointer variable, and with the object of a class it prevents that specific object/method()/variable to modify its data items value.
+
+Constant Variables:
+There are a certain set of rules for the declaration and initialization of the constant variables:
+
+The const variable cannot be left un-initialized at the time of the assignment.
+It cannot be assigned value anywhere in the program.
+Explicit value needed to be provided to the constant variable at the time of declaration of the constant variable.
+
+	const int var; x
+	
+	const int var;
+	var = 5;         x
+	
+	const int var = 5; +
+	
+The error faced for faulty declaration: If you try to initialize the const variable without assigning an explicit value then a compile-time error (CTE) is generated. 
+
+Const Keyword With Pointer Variables:
+Pointers can be declared with a const keyword. So, there are three possible ways to use a const keyword with a pointer, which are as follows:
+
+When the pointer variable point to a const value:
+
+Syntax: 
+
+const data_type* var_name;
+
+	include <iostream>
+	using namespace std;
+	 
+	// Driver Code
+	int main()
+	{
+	    int x{ 10 };
+	    char y{ 'M' };
+	 
+	    const int* i = &x;
+	    const char* j = &y;
+	 
+	    // Value of x and y can be altered,
+	    // they are not constant variables
+	    x = 9;
+	    y = 'A';
+	 
+	    // Change of constant values because,
+	    // i and j are pointing to const-int
+	    // & const-char type value
+	    // *i = 6;
+	    // *j = 7;
+	 
+	    cout << *i << " " << *j;
+	}
+
+Explanation: Here in the above case, i and j are two pointer variables that are pointing to a memory location const int-type and char-type, but the value stored at these corresponding locations can be changed as we have done above. 
+
+Otherwise, the following error will appear: If we try to modify the value of the const variable.
+
+Pass const-argument value to a non-const parameter of a function cause error: Passing const argument value to a non-const parameter of a function isn’t valid it gives you a compile-time error.
+
+	#include <iostream>
+	using namespace std;
+	 
+	int foo(int* y)
+	{
+	    return *y;
+	}
+	 
+	// Driver code
+	int main()
+	{
+	    int z = 8;
+	    const int* x = &z;
+	    cout << foo(x);
+	    return 0;
+	}
+
+Output: The compile-time error that will appear as if const value is passed to any non-const argument of the function then the following compile-time error will appear:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
