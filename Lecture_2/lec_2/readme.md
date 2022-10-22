@@ -77,3 +77,52 @@ What is the & doing here? Is there some website that explains how & is used diff
 This returns a constant reference to a string. So the caller gets to access the returned variable directly, but only in a read-only sense. This is sometimes used to return string data members without allocating extra memory.
 
 There are some subtleties with references - have a look at the C++ FAQ on References for some more details.
+
+----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+
+- Struct:
+
+C++ struct, short for C++ Structure, is an user-defined data type available in C++. It allows a user to combine data items of (possibly) different data types under a single name.
+
+C++ structs are different from arrays because arrays only hold data of similar data-types; C++ struct, on the other hand,​ can store data of multiple data-types.
+
+	struct Employee
+	{
+	  char name[50];
+	  int age;
+	  float salary;
+	};
+	
+Structures can be assigned values when they are initialized.
+
+	struct Employee
+	{
+	  char name[50];
+	  int age;
+	  float salary;
+	};
+
+	int main() {
+	  struct Employee e1 = {"John", 32, 4200};
+
+	  //accessing the values in the variable
+	  printf("Name: %s\n", e1.name);
+	  printf("Age : %d\n", e1.age);
+	  printf("Salary : %f\n", e1.salary);
+	}
+	
+- Struct vs Class:
+It's worth remembering C++'s origins in, and compatibility with, C.
+
+C has structs, it has no concept of encapsulation, so everything is public.
+
+Being public by default is generally considered a bad idea when taking an object-oriented approach, so in making a form of C that is natively conducive to OOP (you can do OO in C, but it won't help you) which was the idea in C++ (originally "C With Classes"), it makes sense to make members private by default.
+
+On the other hand, if Stroustrup had changed the semantics of struct so that its members were private by default, it would have broken compatibility (it is no longer as often true as the standards diverged, but all valid C programs were also valid C++ programs, which had a big effect on giving C++ a foothold).
+
+So a new keyword, class was introduced to be exactly like a struct, but private by default.
+
+If C++ had come from scratch, with no history, then it would probably have only one such keyword. It also probably wouldn't have made the impact it made.
+
+In general, people will tend to use struct when they are doing something like how structs are used in C; public members, no constructor (as long as it isn't in a union, you can have constructors in structs, just like with classes, but people tend not to), no virtual methods, etc. Since languages are as much to communicate with people reading the code as to instruct machines (or else we'd stick with assembly and raw VM opcodes) it's a good idea to stick with that.

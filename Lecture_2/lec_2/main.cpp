@@ -44,11 +44,6 @@ struct Vector2d {
       this->b = b;
   }
 
-  // In c++ most of the time you don't need to use destructo.
-  // Because it is encapsulated in the standard library
-  ~Vector2d() {
-      delete[] c;
-  }
 };
 
 // taking the references of the objects. In reference, we can use it like object but can't change the values.
