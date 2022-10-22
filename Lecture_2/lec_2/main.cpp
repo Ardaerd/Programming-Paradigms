@@ -36,6 +36,9 @@ void printVector(const Vector2d& v) {
 
 int main()
 {
+    // Now, we are creating A on the Heap memory and pointed the object's address
+    // It is not recommended because It is not a modern way to solve dynamic memory allocation problems
+    // It is open to the mistakes
     Vector2d* A = new Vector2d(1,5);
     printVector(*A);
 
