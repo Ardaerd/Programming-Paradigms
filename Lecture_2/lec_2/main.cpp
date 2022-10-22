@@ -10,6 +10,7 @@ struct Vector2d {
   int a;
   int b;
 
+  // construct the vector in the struct. There is no need to define a free function
   Vector2d(int a = 0, int b = 0) {
       this->a = a;
       this->b = b;
@@ -28,6 +29,7 @@ Vector2d addVectors(Vector2d& K, Vector2d& L) {
 
 // For printing the content of the vector
 void printVector(Vector2d& v) {
+    v.a++; // In this code we can read and write into to the contents of the object
     std::cout << "Content of the Vector: " << "(" << v.a << "," << v.b << ")" << std::endl;
 }
 
