@@ -9,6 +9,11 @@ using namespace std;
 struct Vector2d {
   int a;
   int b;
+
+  Vector2d(int a = 0, int b = 0) {
+      this->a = a;
+      this->b = b;
+  }
 };
 
 // taking the references of the objects. In reference, we can use it like object but can't change the values.
@@ -21,13 +26,6 @@ Vector2d addVectors(Vector2d& K, Vector2d& L) {
     return M;
 }
 
-
-// For constructing the contents of the vector
-void constructVector2d(Vector2d& v, int a, int b) {
-    v.a = a;
-    v.b = b;
-}
-
 // For printing the content of the vector
 void printVector(Vector2d& v) {
     std::cout << "Content of the Vector: " << "(" << v.a << "," << v.b << ")" << std::endl;
@@ -36,13 +34,11 @@ void printVector(Vector2d& v) {
 
 int main()
 {
-    Vector2d A;
-    constructVector2d(A,1,5);
+    Vector2d A(1,5);
     printVector(A);
 
 
-    Vector2d B;
-    constructVector2d(B,-1,8);
+    Vector2d B(-1,8);
     printVector(B);
 
     // Giving function the objects
