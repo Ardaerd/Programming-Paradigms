@@ -9,11 +9,21 @@ using namespace std;
 struct Vector2d {
   int a;
   int b;
+  char* c;
 
   // construct the vector in the struct. There is no need to define a free function
   Vector2d(int a = 0, int b = 0) {
+      // In the stack memory compiler delete the objects automaticly.
+      // However, in the Heap memory developer should destructor it manually.
+      c = new char[1000];
       this->a = a;
       this->b = b;
+  }
+
+  // In c++ most of the time you don't need to use destructo.
+  // Because it is encapsulated in the standard library
+  ~Vector2d() {
+      delete[] c;
   }
 };
 
@@ -36,18 +46,15 @@ void printVector(const Vector2d& v) {
 
 int main()
 {
-    // Now, we are creating A on the Heap memory and pointed the object's address
-    // It is not recommended because It is not a modern way to solve dynamic memory allocation problems
-    // It is open to the mistakes
-    Vector2d* A = new Vector2d(1,5);
-    printVector(*A);
+    Vector2d A(1,5);
+    printVector(A);
 
 
     Vector2d B(-1,8);
     printVector(B);
 
     // Giving function the objects
-    Vector2d C = addVectors(*A, B);
+    Vector2d C = addVectors(A, B);
     printVector(C);
 
     cout << "(" << C.a << "," << C.b << ")" << endl;
