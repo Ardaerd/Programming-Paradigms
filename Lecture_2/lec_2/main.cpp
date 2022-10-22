@@ -43,7 +43,6 @@ struct Vector2d {
       this->a = a;
       this->b = b;
   }
-
 };
 
 // taking the references of the objects. In reference, we can use it like object but can't change the values.
