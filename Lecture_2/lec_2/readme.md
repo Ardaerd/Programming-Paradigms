@@ -78,6 +78,8 @@ This returns a constant reference to a string. So the caller gets to access the 
 
 There are some subtleties with references - have a look at the C++ FAQ on References for some more details.
 
+For further information about Reference: https://www.educative.io/answers/reference-variables-and-memory-address-of-variables-in-cpp
+
 ----------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------
 
