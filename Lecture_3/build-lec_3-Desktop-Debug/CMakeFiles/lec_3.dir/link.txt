@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/lec_3.dir/main.cpp.o -o lec_3 
