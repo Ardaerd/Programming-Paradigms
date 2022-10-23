@@ -87,8 +87,9 @@ int main()
     VectorInt v2 = VectorInt(2, v2_values);
     v2.print();
 
+    // If the parameters match for the + sign (v1 + v2), operator+ is gonna executed
     std::cout << v1 + v2 << std::endl;
-
+    std::cout << operator+(v1,v2) << std::endl;
     bool is_okay = v1 + v2;
     if (is_okay) {
         v1.print();
