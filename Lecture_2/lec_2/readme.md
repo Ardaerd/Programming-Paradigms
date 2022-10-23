@@ -315,13 +315,38 @@ While allocating memory on heap we need to delete the memory manually as memory 
 
 To conclude the above topic, static memory is something that the compiler allocates in advance. While dynamic memory is something that is controlled by the program during execution. The program may ask more of it or may delete some allocated.
 
+-------------------------------------------------------------------------------------------------------
 
+Dereferencing a Pointer:
 
+Dereferencing a pointer means getting the value that is stored in the memory location pointed by the pointer. The operator * is used to do this, and is called the dereferencing operator.
 
+	int a = 10;
+	int* ptr = &a;
 
+	printf("%d", *ptr); // With *ptr I'm dereferencing the pointer. 
+		            // Which means, I am asking the value pointed at by the pointer.
+		            // ptr is pointing to the location in memory of the variable a.
+		            // In a's location, we have 10. So, dereferencing gives this value.
 
+	// Since we have indirect control over a's location, we can modify its content using the pointer. This is an indirect way to access a.
 
+	 *ptr = 20;         // Now a's content is no longer 10, and has been modified to 20.
 
+Second Example:
+
+	 int x;
+	 int *p;  // * is used in the declaration:
+		  // p is a pointer to an integer, since (after dereferencing),
+		  // *p is an integer
+	 x = 0;
+	 // now x == 0
+	 p = &x;  // & takes the address of x
+	 // now *p == 0, since p == &x and therefore *p == x
+	 *p = 1;  // equivalent to x = 1, since p == &x
+	 // now *p == 1 and x == 1
+
+For further Information: https://www.youtube.com/watch?v=v_kHaR6QMIY
 
 
 
