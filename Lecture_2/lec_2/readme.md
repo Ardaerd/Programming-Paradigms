@@ -247,14 +247,71 @@ A function() parameters and return type of function() can be declared as constan
 	}
 
 
+-------------------------------------------------------------------------------------------------------
+
+- What is Dynamic Memory Allocation:
+Resources are always a premium. We have strived to achieve better utilization of resources at all times; that is the premise of our progress. Related to this pursuit, is the concept of memory allocation.
+
+Memory has to be allocated to the variables that we create, so that actual variables can be brought to existence. Now there is a constraint as how we think it happens, and how it actually happens.
+
+- How Computer Creates a Variable:
+
+When we think of creating something, we think of creating something from the very scratch, while this isn’t what actually happens when a computer creates a variable ‘X’; to the computer, is more like an allocation, the computer just assigns a memory cell from a lot of pre-existing memory cells to X. It’s like someone named ‘RAJESH’ being allocated to a hotel room from a lot of free or empty pre-existing rooms. This example probably made it very clear as how the computer does the allocation of memory.
+
+Now, What is a Static Memory Allocation:
+
+When we declare variables, we actually are preparing all the variables that will be used, so that the compiler knows that the variable being used is actually an important part of the program that the user wants and not just a rogue symbol floating around. So, when we declare variables, what the compiler actually does is allocate those variables to their rooms (refer to the hotel analogy earlier). Now, if you see, this is being done before the program executes, you can’t allocate variables by this method while the program is executing. 
 
 
+	// All the variables in below program
+	// are statically allocated.
+	void fun()
+	{
+	   int a;
+	}
+	int main()
+	{
+	   int b;
+	   int c[10]
+	}
+
+- Why do we need to intoduce another allocation method if this just gets the job done:
+
+Why would we need to allocate memory while the program is executing? Because, even though it isn’t blatantly visible, not being able to allocate memory during run time precludes flexibility and compromises with space efficiency. Specially, those cases where the input isn’t known beforehand, we suffer in terms of inefficient storage use and lack or excess of slots to enter data (given an array or similar data structures to store entries). So, here we define Dynamic Memory Allocation: The mechanism by which storage/memory/cells can be allocated to variables during the run time is called Dynamic Memory Allocation (not to be confused with DMA). So, as we have been going through it all, we can tell that it allocates the memory during the run time which enables us to use as much storage as we want, without worrying about any wastage.
+
+Note: Dynamic memory allocation is the process of assigning the memory space during the execution time or the run time.
+
+Reasons and Advantage of Allocating Memory Dynamically:
+
+1- When we do not know how much amount of memory would be needed for the program beforehand.
+
+2- When we want data structures without any upper limit of memory space.
+
+3- When you want to use your memory space more efficiently.Example: If you have allocated memory space for a 1D array as array[20] and you end up using only 10 memory spaces then the remaining 10 memory spaces would be wasted and this wasted memory cannot even be utilized by other program variables.
+
+4- Dynamically created lists insertions and deletions can be done very easily just by the manipulation of addresses whereas in case of statically allocated memory insertions and deletions lead to more movements and wastage of memory.
+
+5- When you want you to use the concept of structures and linked list in programming, dynamic memory allocation is a must.
+
+- There are two types of available memories- stack and heap. Static memory allocation can only be done on stack whereas dynamic memory allocation can be done on both stack and heap. An example of dynamic allocation to be done on the stack is recursion where the functions are put into call stack in order of their occurrence and popped off one by one on reaching the base case. Example of dynamic memory allocation on the heap is: 
+
+	int main()
+	{
+	   // Below variables are allocated memory
+	   // dynamically on heap.
+	   int *ptr1 = new int;
+	   int *ptr2 = new int[10];
+	 
+	   // Dynamically allocated memory is
+	   // deallocated
+	   delete ptr1;
+	   delete [] ptr2;
+	}
 
 
+While allocating memory on heap we need to delete the memory manually as memory is not freed(deallocated) by the compiler itself even if the scope of allocated memory finishes(as in case of stack).
 
-
-
-
+To conclude the above topic, static memory is something that the compiler allocates in advance. While dynamic memory is something that is controlled by the program during execution. The program may ask more of it or may delete some allocated.
 
 
 
