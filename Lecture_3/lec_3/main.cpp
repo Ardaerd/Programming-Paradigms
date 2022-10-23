@@ -60,21 +60,34 @@ struct VectorInt {
             std::cout << this->content[i] << std::endl;
     }
 
+    bool operator+(VectorInt& v2) {
+        VectorInt v1 = *this;
+
+        if (v1.n_dims != v2.n_dims)
+            return false;
+
+        for (int i = 0; i < v1.n_dims; i++)
+            v1.content[i] += v2.content[i];
+
+        return true;
+    }
+
     ~VectorInt() {
         delete[] content;
     }
 };
 
 
-bool operator+(VectorInt& v1, VectorInt& v2) {
-    if (v1.n_dims != v2.n_dims)
-        return false;
+// For adding extra functionality to the + sign. Also we can use the function's name
+//bool operator+(VectorInt& v1, VectorInt& v2) {
+//    if (v1.n_dims != v2.n_dims)
+//        return false;
 
-    for (int i = 0; i < v1.n_dims; i++)
-        v1.content[i] += v2.content[i];
+//    for (int i = 0; i < v1.n_dims; i++)
+//        v1.content[i] += v2.content[i];
 
-    return true;
-}
+//    return true;
+//}
 
 
 int main()
@@ -89,7 +102,9 @@ int main()
 
     // If the parameters match for the + sign (v1 + v2), operator+ is gonna executed
     std::cout << v1 + v2 << std::endl;
+    // It is the samething with the above declaration
     std::cout << operator+(v1,v2) << std::endl;
+
     bool is_okay = v1 + v2;
     if (is_okay) {
         v1.print();
