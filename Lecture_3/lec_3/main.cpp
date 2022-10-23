@@ -66,6 +66,17 @@ struct VectorInt {
 };
 
 
+bool operator+(VectorInt& v1, VectorInt& v2) {
+    if (v1.n_dims != v2.n_dims)
+        return false;
+
+    for (int i = 0; i < v1.n_dims; i++)
+        v1.content[i] += v2.content[i];
+
+    return true;
+}
+
+
 int main()
 {
     int v1_values[2] = {10,20};
@@ -76,8 +87,7 @@ int main()
     VectorInt v2 = VectorInt(2, v2_values);
     v2.print();
 
-    bool is_okay = v1.addVectors(v2);
-
+    bool is_okay = v1 + v2;
     if (is_okay) {
         v1.print();
     } else {
