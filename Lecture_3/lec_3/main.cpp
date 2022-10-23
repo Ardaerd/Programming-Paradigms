@@ -87,6 +87,8 @@ int main()
     VectorInt v2 = VectorInt(2, v2_values);
     v2.print();
 
+    std::cout << v1 + v2 << std::endl;
+
     bool is_okay = v1 + v2;
     if (is_okay) {
         v1.print();
