@@ -61,7 +61,7 @@ struct VectorInt {
     }
 
     bool operator+(VectorInt& v2) {
-        VectorInt v1 = *this;
+        VectorInt& v1 = *this;
 
         if (v1.n_dims != v2.n_dims)
             return false;
@@ -101,11 +101,12 @@ int main()
     v2.print();
 
     // If the parameters match for the + sign (v1 + v2), operator+ is gonna executed
-    std::cout << v1 + v2 << std::endl;
-    // It is the samething with the above declaration
-    std::cout << operator+(v1,v2) << std::endl;
+    // std::cout << v1 + v2 << std::endl;
+    // In this case this declaration couldn't compile because operator+ is no longer a free function
+    //std::cout << operator+(v1,v2) << std::endl;
 
     bool is_okay = v1 + v2;
+
     if (is_okay) {
         v1.print();
     } else {
