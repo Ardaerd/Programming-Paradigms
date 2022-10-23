@@ -21,14 +21,66 @@
 // auto, AAA rule (almost always auto)
 
 #include <iostream>
+#include "Vector.hpp"
+
+template<typename T>
+
+void print(Vector<T>& v) {
+
+}
+
+struct VectorInt {
+
+    int n_dims;
+    int* content; // lots of integers (actually n_dims of ints)
+
+    VectorInt(int n_dims, int* content) {
+        this->n_dims = n_dims;
+        this->content = new int[n_dims];
+
+        for (int i = 0; i < n_dims; i++) {
+            this->content[i] = content[i];
+        }
+    }
+
+    ~VectorInt() {
+        delete[] content;
+    }
 
 
+    void print() {
+        for (int i = 0; i < n_dims; i++) {
+            std::cout << content[i] << std::endl;
+        }
+    }
+};
 
 
-using namespace std;
+bool addVectors(VectorInt& v1, VectorInt& v2) {
+    if (v1.n_dims != v2.n_dims)
+        return false;
+
+    for (int i = 0; i < v1.n_dims; i++)
+        v1.content[i] += v2.content[i];
+
+    return true;
+}
+
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    int v1_values[2] = {10,20};
+    VectorInt v1 = VectorInt(2, v1_values);
+    v1.print();
+
+    int v2_values[2] = {100,200};
+    VectorInt v2 = VectorInt(2, v2_values);
+    v2.print();
+
+    bool is_okay = addVectors(v1,v2);
+
+    if (is_okay) {
+        v1.print();
+    }
     return 0;
 }
