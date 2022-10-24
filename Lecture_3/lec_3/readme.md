@@ -346,3 +346,79 @@ We can pass function pointer’s as arguments in our programs as shown below:
  		function 1 is called 
 
 In the program above, we have passed a function pointer as an argument to the function2() function. The address of function1() is provided to the func2() function by the main() method. The function2() function is indirectly invoking the function1() function in this manner.
+
+Function pass by value vs. pass by reference:
+
+I will call what you are passing in a to a function the actual parameters, and where you receive them, the parameters in the function, the formal parameters. They are also called actual and formal arguments.
+
+When passing parameters, what it is called and what happens can be confusing. It is less essential that you call it the "correct" thing than you know exactly what is happening. It is critical to have a good mental model, a valid memory picture of the process.
+
+Recall that when you call a function, a chunk of memory called an activation record is allocated. Critical to the discussion here is that this memory holds the formal parameter values and function local variables.
+
+By definition, pass by value means you are making a copy in memory of the actual parameter's value that is passed in, a copy of the contents of the actual parameter. Use pass by value when when you are only "using" the parameter for some computation, not changing it for the client program.
+
+In pass by reference (also called pass by address), a copy of the address of the actual parameter is stored. Use pass by reference when you are changing the parameter passed in by the client program.
+
+Consider a swapping function to demonstrate pass by value vs. pass by reference. This function, which swaps ints, cannot be done in Java.
+
+   main() {
+      int i = 10, j = 20;
+      swapThemByVal(i, j);
+      cout << i << "  " << j << endl;     // displays 10  20
+      swapThemByRef(i, j);
+      cout << i << "  " << j << endl;     // displays 20  10
+      ...
+   }
+
+   void swapThemByVal(int num1, int num2) {
+      int temp = num1;
+      num1 = num2;
+      num2 = temp;
+   }
+
+   void swapThemByRef(int& num1, int& num2) {
+      int temp = num1;
+      num1 = num2;
+      num2 = temp;
+   }
+First, we show the memory picture for swapThemByVal. The activation record holds the memory for the two parameters, num1 and num2, and the local variable, temp. A copy of the values from main, in the contents of i and j, are copied. All the manipulation is done in the activation record.
+                       +-------------+                +-------------+  
+        swapThemByVal: |+--+         | swapThemByVal: |+--+         |  
+        (at start)     ||..| temp    | (after         ||10| temp    |  
+main:                  |+--+         |  assignments)  |+--+         |  
+  +----+               |+--+         |                |+--+         |  
+i | 10 |               ||10| num1    |                ||20| num1    |  
+  +----+               |+--+         |                |+--+         |  
+  +----+               |+--+         |                |+--+         |  
+j | 20 |               ||20| num2    |                ||10| num2    |  
+  +----+               |+--+         |                |+--+         |  
+                       +-------------+                +-------------+  
+The contents of memory of   i   and   j   don't change. The contents of memory in the function's activation record changes, but when the function terminates, the memory is released and the changes are lost.
+
+Contrast this with passing by reference. The addresses of   i   and   j   are passed (noted by the arrows) by reference. The compiler knows they are references so when the parameters are referred to in the function, the compiler dereferences num1 and num2 automatically so   i   and   j   of main's memory are changed.
+                       +-------------+
+        swapThemByRef: |+--+         |
+                       ||..| temp    |
+main:                  |+--+         |
+  +----+               |+--+         |
+i | 10 | <-------------||--| num1    |
+  +----+               |+--+         |
+  +----+               |+--+         |
+j | 20 | <-------------||--| num2    |
+  +----+               |+--+         |
+                       +-------------+
+After the assignments:
+                       +-------------+
+        swapThemByRef: |+--+         |
+                       ||10| temp    |
+main:                  |+--+         |
+  +----+               |+--+         |
+i | 20 | <-------------||--| num1    |
+  +----+               |+--+         |
+  +----+               |+--+         |
+j | 10 | <-------------||--| num2    |
+  +----+               |+--+         |
+                       +-------------+
+This is the essence of pass by value vs. pass by reference. It doesn't matter if the parameters are primitive types, arrays, or objects, either a copy is made or an address is stored. As noted elsewhere, when objects are copied, the copy constructor is called to do the copying.
+
+Typically if you aren't going to change a variable, you use pass by value. But if you are passing something in that uses a lot of memory, i.e., passing an object or passing an array, even if you aren't changing it, you use what I like to call fake pass by value.
