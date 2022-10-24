@@ -245,6 +245,104 @@ Here is an example of a C++ program to show different data types using a constru
 		A = 22 size of data in bytes:4
 		A = 2.25 size of data in bytes:4
 		
+
+Function Pointers:
+
+To point to data, pointers are used. Like normal data pointers, we have function pointers that point to functions. The address of a function is stored in a function pointer.
+
+The Basic syntax of function pointers:
+
+	void (*fun_ptr)(int);
+	       fun_ptr = &fun;
+
+We can think of function pointers like normal C++ functions. Where void is the function’s return type. *fun_ptr is a pointer to a function that takes one int argument. It’s as if we are declaring a function called *fun_ptr which takes int and returns void.
+
+The key to writing the declaration for a function pointer is to think of it as a function declaration, but with *fun_name instead of func_name. The pointer symbol * precedes the declaration of the function pointer. Because the function pointer can accept many parameters, it can point to any function that accepts two integer arguments and returns void.
+
+- Facts on function pointers that you should know:
+
+1- Unlike other pointers, a function pointer points to code rather than data. The start of executable code is commonly stored in a function pointer.
+
+2- We don’t use function pointers to allocate or de-allocate memory as we do with normal pointers.
+
+3- The name of a function may also be used to find the address of that function as we had seen in the program above.
+
+4- Regular pointers can be used with an array of function pointers in the same manner that regular pointers can.
+
+5- In place of a switch case, function pointers can be utilized.
+
+6- A function pointer, like a data pointer, can be supplied as an argument and returned from a function.
+
+Example 1:
+
+	#include <iostream>  
+	using namespace std;  
+	int add(int x , int y)  
+	{  
+	    return x+y;  
+	}  
+	int main()  
+	{  
+	 int (*funcptr)(int,int);  // Declaration of function pointer
+	 funcpointr=add; // In this case we are pointing to the add function  
+
+	 int sum=funcpointr(7,10);  
+	 std::cout << "Sum=" <<sum<< std::endl;  
+	  return 0;  
+	}  
+	
+	Sum value is : 17
+	
+We declare the function pointer, int (*funcptr)(int,int), and then store the address of the add() function in funcptr in the preceding program. This means that the address of the add() method is stored in funcptr. We can now use funcptr to invoke the add() method. The add() function is called by the phrase funcptr(7,10), and the result is put in the sum variable.	
+
+	#include <iostream>  
+	using namespace std;  
+	void printname(char *name)  
+	{  
+	    std::cout << "Name:" <<name<< std::endl;  
+	}  
+	  
+	int main()  
+	{  
+	    char x[30];  // array declaration  
+	    void (*ptr)(char*);  // function pointer declaration  
+	    ptr=printname;  // storing the address of printname in ptr.  
+	    std::cout << "Enter name: " << std::endl;  
+	    cin>>x;  
+	    cout<<x<<endl;  
+	    ptr(x);  // calling printname() function  
+	   return 0;  
+	}  
+	
+	Enter name:
+		Daniel
+		Daniel
+		Name: Daniel
 		
-		
-		
+We define the function printname() in the preceding program, which takes a char pointer as an argument. We declared our function pointer as void (*ptr)(char*).
+
+We are setting the address of the printname() function to ptr with the expression ptr=printname. We can now use the ptr statement to call the printname() methods. We get the output above after entering the name as Daniel.
+
+Passing function pointers as arguments
+We can pass function pointer’s as arguments in our programs as shown below:
+
+	#include <iostream>  
+	using namespace std;  
+	void function1()  
+	{  
+	    cout<<"function1 is called";  
+	}  
+	void function2(void (*funcptr)())  
+	{  
+	    funcptr();  
+	}  
+	int main()  
+	{  
+	  function2(function1);  
+	  return 0;  
+	} 
+	
+	Output:
+ 		function 1 is called 
+
+In the program above, we have passed a function pointer as an argument to the function2() function. The address of function1() is provided to the func2() function by the main() method. The function2() function is indirectly invoking the function1() function in this manner.
