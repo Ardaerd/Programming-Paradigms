@@ -422,3 +422,29 @@ j | 10 | <-------------||--| num2    |
 This is the essence of pass by value vs. pass by reference. It doesn't matter if the parameters are primitive types, arrays, or objects, either a copy is made or an address is stored. As noted elsewhere, when objects are copied, the copy constructor is called to do the copying.
 
 Typically if you aren't going to change a variable, you use pass by value. But if you are passing something in that uses a lot of memory, i.e., passing an object or passing an array, even if you aren't changing it, you use what I like to call fake pass by value.
+
+C++ malloc():
+
+In this tutorial, we will learn about the C++ malloc() function with the help of examples.
+
+The malloc() function in C++ allocates a block of uninitialized memory to a pointer. It is defined in the cstdlib header file.
+
+Example
+	#include <iostream>
+	#include <cstdlib>
+	using namespace std;
+
+	int main() {
+
+	  // allocate memory of int size to an int pointer
+	  int* ptr = (int*) malloc(sizeof(int));
+
+	  // assign the value 5 to allocated memory
+	  *ptr = 5;
+
+	  cout << *ptr;
+
+	  return 0;
+	}
+
+// Output: 5
