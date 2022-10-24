@@ -92,10 +92,6 @@ struct VectorInt {
 
 int main()
 {
-    int b = 5;
-    int* a = &b;
-    std::cout << *a << std::endl;
-
     int v1_values[2] = {10,20};
     VectorInt v1 = VectorInt(2, v1_values);
     v1.print();
