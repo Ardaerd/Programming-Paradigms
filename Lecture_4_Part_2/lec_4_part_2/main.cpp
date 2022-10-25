@@ -68,10 +68,13 @@ int main()
     print(f2);
     print(f3);
 
+    // Assignments should be constructed before
+    // Copy constructor can be constructed before or not
     f1 = f3; // assignment
     auto f4 = f3; // Copy construction
-    f4 = f1;
+    f4 = f1; // assignment
     auto f5 = Fraction(f3); // Copy construction
+    // f6 = f3; // It was an error. f6 should be constructed before to using assignment
     print(f1);
 
     return 0;
