@@ -53,7 +53,7 @@ struct Fraction {
     }
 
     // It has not void type because you can think it as a constructor.
-    operator double() {
+    explicit operator double() {
         return value();
     }
 
@@ -71,6 +71,8 @@ void print(const Fraction& f) {
 int main()
 {
     auto f1 = Fraction(10,3);
+    Fraction f1_ = 3.33;
+    print(f1_);
     auto f2 = Fraction(10);
     auto f3 = Fraction();
 
@@ -78,7 +80,9 @@ int main()
     cout << (double)f1 << endl; // It is not gonna work. If you not wrote the operation function for double()
 
     double d;
-    d = f1;
+    // If you define operator function explicit below code is not gonna work
+    // d = f1; // It is working because we used assigning for double
+    d = (double) f1; // If you write explicit, you should declare it like that
 
     cout << d << endl;
 
