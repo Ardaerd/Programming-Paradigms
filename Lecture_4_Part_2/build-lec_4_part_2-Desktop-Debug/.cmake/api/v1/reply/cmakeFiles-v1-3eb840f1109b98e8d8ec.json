@@ -20,7 +20,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "/home/arda/Cs_321/Lecture_4/build-lec_4-Desktop-Debug/CMakeFiles/3.22.1/CMakeSystem.cmake"
+			"path" : "/home/arda/Cs_321/Lecture_4_Part_2/build-lec_4_part_2-Desktop-Debug/CMakeFiles/3.22.1/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -259,7 +259,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "/home/arda/Cs_321/Lecture_4/build-lec_4-Desktop-Debug/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake"
+			"path" : "/home/arda/Cs_321/Lecture_4_Part_2/build-lec_4_part_2-Desktop-Debug/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -383,14 +383,14 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "/home/arda/Cs_321/Lecture_4/build-lec_4-Desktop-Debug/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake"
+			"path" : "/home/arda/Cs_321/Lecture_4_Part_2/build-lec_4_part_2-Desktop-Debug/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/arda/Cs_321/Lecture_4/build-lec_4-Desktop-Debug",
-		"source" : "/home/arda/Cs_321/Lecture_4/lec_4"
+		"build" : "/home/arda/Cs_321/Lecture_4_Part_2/build-lec_4_part_2-Desktop-Debug",
+		"source" : "/home/arda/Cs_321/Lecture_4_Part_2/lec_4_part_2"
 	},
 	"version" : 
 	{

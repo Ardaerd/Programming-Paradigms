@@ -54,16 +54,16 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/arda/Cs_321/Lecture_4/lec_4
+CMAKE_SOURCE_DIR = /home/arda/Cs_321/Lecture_4_Part_2/lec_4_part_2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/arda/Cs_321/Lecture_4/build-lec_4-Desktop-Debug
+CMAKE_BINARY_DIR = /home/arda/Cs_321/Lecture_4_Part_2/build-lec_4_part_2-Desktop-Debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/lec_4_part_1.dir/all
+all: CMakeFiles/lec_4_part_2.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/lec_4_part_1.dir/clean
+clean: CMakeFiles/lec_4_part_2.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/lec_4_part_1.dir
+# Target rules for target CMakeFiles/lec_4_part_2.dir
 
 # All Build rule for target.
-CMakeFiles/lec_4_part_1.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lec_4_part_1.dir/build.make CMakeFiles/lec_4_part_1.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lec_4_part_1.dir/build.make CMakeFiles/lec_4_part_1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/arda/Cs_321/Lecture_4/build-lec_4-Desktop-Debug/CMakeFiles --progress-num=1,2 "Built target lec_4_part_1"
-.PHONY : CMakeFiles/lec_4_part_1.dir/all
+CMakeFiles/lec_4_part_2.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lec_4_part_2.dir/build.make CMakeFiles/lec_4_part_2.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lec_4_part_2.dir/build.make CMakeFiles/lec_4_part_2.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/arda/Cs_321/Lecture_4_Part_2/build-lec_4_part_2-Desktop-Debug/CMakeFiles --progress-num=1,2 "Built target lec_4_part_2"
+.PHONY : CMakeFiles/lec_4_part_2.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/lec_4_part_1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arda/Cs_321/Lecture_4/build-lec_4-Desktop-Debug/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/lec_4_part_1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arda/Cs_321/Lecture_4/build-lec_4-Desktop-Debug/CMakeFiles 0
-.PHONY : CMakeFiles/lec_4_part_1.dir/rule
+CMakeFiles/lec_4_part_2.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/arda/Cs_321/Lecture_4_Part_2/build-lec_4_part_2-Desktop-Debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/lec_4_part_2.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/arda/Cs_321/Lecture_4_Part_2/build-lec_4_part_2-Desktop-Debug/CMakeFiles 0
+.PHONY : CMakeFiles/lec_4_part_2.dir/rule
 
 # Convenience name for target.
-lec_4_part_1: CMakeFiles/lec_4_part_1.dir/rule
-.PHONY : lec_4_part_1
+lec_4_part_2: CMakeFiles/lec_4_part_2.dir/rule
+.PHONY : lec_4_part_2
 
 # clean rule for target.
-CMakeFiles/lec_4_part_1.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lec_4_part_1.dir/build.make CMakeFiles/lec_4_part_1.dir/clean
-.PHONY : CMakeFiles/lec_4_part_1.dir/clean
+CMakeFiles/lec_4_part_2.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lec_4_part_2.dir/build.make CMakeFiles/lec_4_part_2.dir/clean
+.PHONY : CMakeFiles/lec_4_part_2.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

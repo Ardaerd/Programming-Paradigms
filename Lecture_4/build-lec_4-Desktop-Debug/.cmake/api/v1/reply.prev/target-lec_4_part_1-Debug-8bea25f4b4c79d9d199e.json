@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lec_4"
+			"path" : "lec_4_part_1"
 		}
 	],
 	"backtrace" : 1,
@@ -38,7 +38,7 @@
 					"fragment" : "-g"
 				},
 				{
-					"fragment" : "-std=gnu++11"
+					"fragment" : "-std=gnu++20"
 				}
 			],
 			"language" : "CXX",
@@ -48,7 +48,7 @@
 				[
 					1
 				],
-				"standard" : "11"
+				"standard" : "20"
 			},
 			"sourceIndexes" : 
 			[
@@ -56,7 +56,7 @@
 			]
 		}
 	],
-	"id" : "lec_4::@6890427a1f51a3e7e1df",
+	"id" : "lec_4_part_1::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -72,8 +72,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "lec_4",
-	"nameOnDisk" : "lec_4",
+	"name" : "lec_4_part_1",
+	"nameOnDisk" : "lec_4_part_1",
 	"paths" : 
 	{
 		"build" : ".",
