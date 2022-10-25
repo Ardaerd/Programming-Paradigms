@@ -21,30 +21,24 @@
 // auto, AAA rule (almost always auto)
 
 #include <iostream>
-#include "Vector.hpp"
 
 template<typename T>
-
-void print(Vector<T>& v) {
-
-}
-
-struct VectorInt {
+struct Vector {
 
     int n_dims;
-    int* content; // lots of integers (actually n_dims of ints)
+    T* content; // lots of integers (actually n_dims of ints)
 
-    VectorInt(int n_dims, int* content) {
+    Vector(int n_dims, T* content) {
         this->n_dims = n_dims;
-        this->content = new int[n_dims];
+        this->content = new T[n_dims];
 
         for (int i = 0; i < n_dims; i++) {
             this->content[i] = content[i];
         }
     }
 
-    bool addVectors(VectorInt& v2) {
-        VectorInt& v1 = *this;
+    bool addVectors(Vector& v2) {
+        Vector& v1 = *this;
 
         if (v1.n_dims != v2.n_dims)
             return false;
@@ -60,8 +54,8 @@ struct VectorInt {
             std::cout << this->content[i] << std::endl;
     }
 
-    bool operator+(VectorInt& v2) {
-        VectorInt& v1 = *this;
+    bool operator+(Vector& v2) {
+        Vector& v1 = *this;
 
         if (v1.n_dims != v2.n_dims)
             return false;
@@ -72,7 +66,7 @@ struct VectorInt {
         return true;
     }
 
-    ~VectorInt() {
+    ~Vector() {
         delete[] content;
     }
 };
@@ -92,12 +86,12 @@ struct VectorInt {
 
 int main()
 {
-    int v1_values[2] = {10,20};
-    VectorInt v1 = VectorInt(2, v1_values);
+    double v1_values[2] = {10.7,20.9};
+    Vector<double> v1 = Vector<double>(2, v1_values);
     v1.print();
 
-    int v2_values[2] = {100,200};
-    VectorInt v2 = VectorInt(2, v2_values);
+    double v2_values[2] = {100.1,200.3};
+    Vector<double> v2 = Vector<double>(2, v2_values);
     v2.print();
 
     // If the parameters match for the + sign (v1 + v2), operator+ is gonna executed

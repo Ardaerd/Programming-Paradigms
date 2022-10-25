@@ -177,8 +177,7 @@ CMakeFiles/lec_3.dir/main.cpp.o: /home/arda/Cs_321/Lecture_3/lec_3/main.cpp \
   /usr/include/c++/11/bits/basic_ios.tcc \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
-  /usr/include/c++/11/bits/istream.tcc \
-  /home/arda/Cs_321/Lecture_3/lec_3/Vector.hpp
+  /usr/include/c++/11/bits/istream.tcc
 
 
 /usr/include/c++/11/bits/istream.tcc:
@@ -258,8 +257,6 @@ CMakeFiles/lec_3.dir/main.cpp.o: /home/arda/Cs_321/Lecture_3/lec_3/main.cpp \
 /usr/include/ctype.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
-
-/home/arda/Cs_321/Lecture_3/lec_3/Vector.hpp:
 
 /usr/include/c++/11/initializer_list:
 
