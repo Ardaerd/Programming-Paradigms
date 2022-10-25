@@ -51,6 +51,16 @@ struct Fraction {
         n = right.n;
         d = right.d;
     }
+
+    // It has not void type because you can think it as a constructor.
+    operator double() {
+        return value();
+    }
+
+    // For casting exercise
+    double value() {
+        return (double) n / d; // you should cast the return type. If you not, output is gonna be 3
+    }
 };
 
 
@@ -63,6 +73,14 @@ int main()
     auto f1 = Fraction(10,3);
     auto f2 = Fraction(10);
     auto f3 = Fraction();
+
+    cout << f1.value() << endl;
+    cout << (double)f1 << endl; // It is not gonna work. If you not wrote the operation function for double()
+
+    double d;
+    d = f1;
+
+    cout << d << endl;
 
     print(f1);
     print(f2);
