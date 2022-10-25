@@ -52,6 +52,9 @@ void for_each(vector<int>& container, oneinter funcptr) {
 // adding one to the parameter and return it
 int add_one(int i) { return i + 1; }
 
+// multiplying parameter by ten. Then, return it
+int multiply_by10(int i) { return 10 * i; }
+
 
 int main()
 {
@@ -60,7 +63,7 @@ int main()
     for (int i = 0; i < 10; i++)
         v[i] = i;
 
-    for_each(v, &add_one);
+    for_each(v, &multiply_by10);
     for (int i = 0; i < 10; i++)
         cout << v[i] << endl;
 
