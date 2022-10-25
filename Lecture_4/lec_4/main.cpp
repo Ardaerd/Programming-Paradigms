@@ -38,10 +38,12 @@ int dosmt3(int a, int b) { return a - b; }
 // structure of the function pointer
 // typedef int (*twointer)(int,int) // old way
 using twointer = int (*)(int,int);   // modern C++ way
-using oneinter = int (*)(int);
 
+template<typename T>
+using oneinter = T (*)(T);
 
-void for_each(vector<int>& container, oneinter funcptr) {
+template<typename T>
+void for_each(vector<T>& container, oneinter<T> funcptr) {
     auto size = container.size();
 
     for (int i = 0; i < size; i++)
