@@ -40,6 +40,12 @@ struct Fraction {
     // another way for declaring a constructor with the default value
     // Fraction(int n, int d=1) : n(n), d(d) { }
 
+    // It is a copy constructor (when you use '=' operator with this constructor)
+    Fraction(const Fraction& other) : n(other.n), d(other.d) {
+        cout << "I am being copy constructed!" << endl;
+    }
+
+    // manipulating the '=' operator for the Fraction struct
     void operator=(Fraction& right) {
         cout << "I am being manipulated!" << endl;
         n = right.n;
@@ -62,7 +68,10 @@ int main()
     print(f2);
     print(f3);
 
-    f1 = f3;
+    f1 = f3; // assignment
+    auto f4 = f3; // Copy construction
+    f4 = f1;
+    auto f5 = Fraction(f3); // Copy construction
     print(f1);
 
     return 0;
