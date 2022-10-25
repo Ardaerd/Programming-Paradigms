@@ -26,6 +26,7 @@
 // static attributes and staticness. static variable initialization
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -36,11 +37,34 @@ int dosmt3(int a, int b) { return a - b; }
 
 // structure of the function pointer
 // typedef int (*twointer)(int,int) // old way
-using twoptr = int (*)(int,int);   // modern C++ way
+using twointer = int (*)(int,int);   // modern C++ way
+using oneinter = int (*)(int);
+
+
+void for_each(vector<int>& container, oneinter funcptr) {
+    auto size = container.size();
+
+    for (int i = 0; i < size; i++)
+        container[i] = funcptr(container[i]);
+
+}
+
+// adding one to the parameter and return it
+int add_one(int i) { return i + 1; }
+
 
 int main()
 {
-    twoptr funcptr = &dosmt2;
+    vector<int> v(10);
+
+    for (int i = 0; i < 10; i++)
+        v[i] = i;
+
+    for_each(v, &add_one);
+    for (int i = 0; i < 10; i++)
+        cout << v[i] << endl;
+
+    twointer funcptr = &dosmt2;
 
     int retval = 0;
     retval = funcptr(1,2);
