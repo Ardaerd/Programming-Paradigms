@@ -39,6 +39,12 @@ struct Fraction {
 
     // another way for declaring a constructor with the default value
     // Fraction(int n, int d=1) : n(n), d(d) { }
+
+    void operator=(Fraction& right) {
+        cout << "I am being manipulated!" << endl;
+        n = right.n;
+        d = right.d;
+    }
 };
 
 
