@@ -37,8 +37,8 @@ struct Vector {
         }
     }
 
-    bool addVectors(Vector& v2) {
-        Vector& v1 = *this;
+    bool addVectors(Vector<T>& v2) {
+        auto v1 = *this;
 
         if (v1.n_dims != v2.n_dims)
             return false;
@@ -54,8 +54,8 @@ struct Vector {
             std::cout << this->content[i] << std::endl;
     }
 
-    bool operator+(Vector& v2) {
-        Vector& v1 = *this;
+    bool operator+(Vector<T>& v2) {
+        auto& v1 = *this;
 
         if (v1.n_dims != v2.n_dims)
             return false;
@@ -87,11 +87,11 @@ struct Vector {
 int main()
 {
     double v1_values[2] = {10.7,20.9};
-    Vector<double> v1 = Vector<double>(2, v1_values);
+    auto v1 = Vector<double>(2, v1_values);
     v1.print();
 
     double v2_values[2] = {100.1,200.3};
-    Vector<double> v2 = Vector<double>(2, v2_values);
+    auto v2 = Vector<double>(2, v2_values);
     v2.print();
 
     // If the parameters match for the + sign (v1 + v2), operator+ is gonna executed
@@ -100,7 +100,7 @@ int main()
     //std::cout << operator+(v1,v2) << std::endl;
 
     // It is automatically executed, even though it was in the OOP
-    bool is_okay = v1 + v2;
+    auto is_okay = v1 + v2;
 
     if (is_okay) {
         v1.print();
