@@ -34,20 +34,25 @@ int dosmt1(int a, int b) { return a; }
 int dosmt2(int a, int b) { return a + b; }
 int dosmt3(int a, int b) { return a - b; }
 
+// structure of the function pointer
+// typedef int (*twointer)(int,int) // old way
+using twoptr = int (*)(int,int);   // modern C++ way
+
 int main()
 {
+    twoptr funcptr = &dosmt2;
 
-    int choice = 0;
     int retval = 0;
+    retval = funcptr(1,2);
 
-    if (choice == 0)
-        retval = dosmt1(1,2);
+//    if (choice == 0)
+//        retval = dosmt1(1,2);
 
-    else if (choice == 1)
-        retval = dosmt2(1,2);
+//    else if (choice == 1)
+//        retval = dosmt2(1,2);
 
-    else if (choice == 2)
-        retval = dosmt3(1,2);
+//    else if (choice == 2)
+//        retval = dosmt3(1,2);
 
     cout << retval << endl;
 
