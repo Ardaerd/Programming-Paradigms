@@ -33,9 +33,9 @@ struct Fraction {
     int d;
 
     // Defining a constructur with the default values
-    Fraction() : n(0), d(1) { }
-    Fraction(int n) : n(n), d(1) { }
-    Fraction(int n, int d) : n(n), d(d) { }
+    explicit Fraction() : n(0), d(1) { }
+    explicit Fraction(int n) : n(n), d(1) { }
+    explicit Fraction(int n, int d) : n(n), d(d) { }
 
     // another way for declaring a constructor with the default value
     // Fraction(int n, int d=1) : n(n), d(d) { }
@@ -68,11 +68,17 @@ void print(const Fraction& f) {
     cout << f.n << "/" << f.d << endl;
 }
 
+
+auto operator"" _frac(long double value) {
+    return Fraction((int)value);
+}
+
 int main()
 {
     auto f1 = Fraction(10,3);
-    Fraction f1_ = 3.33;
-    print(f1_);
+    // It is a dangerous feature, so you should write explicit for constructors
+    // Fraction f1_ = 3.33; // It is executed because second constructer was executed
+    // print(f1_); 3/1
     auto f2 = Fraction(10);
     auto f3 = Fraction();
 
