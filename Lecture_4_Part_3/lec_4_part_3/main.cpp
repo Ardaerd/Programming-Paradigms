@@ -46,6 +46,23 @@ Celcius::Celcius(Fahrenheit& f) : value((f.value - 32) / 180 * 100) { }
 auto operator"" _c(long double value) { return Celcius(value); }
 auto operator"" _f(long double value) { return Fahrenheit(value); }
 
+// bool foo_initialized = false; // It is a free variable
+
+void foo() {
+    // If we don't want to use free variable
+    // bool foo_initialized = false; // However, It is gonna declared false each time when we call Foo()
+    // Because of that we can use static variable
+    // It is like a global variabal but in the local scope
+    static bool foo_initialized = false;
+    cout << foo_initialized << endl;
+
+    if (!foo_initialized) {
+        foo_initialized = true;
+        cout << foo_initialized << endl;
+
+    }
+}
+
 
 int main()
 {
@@ -59,11 +76,13 @@ int main()
     c1 = f1; // using operator '=' in Celcius struct
     cout << "C1: " << c1.value << endl;
 
-    c2 = f2;
+    c2 = f2; // Assignment
     // Celcius c3 = f1;
     auto c3 = (Celcius)f1; // If you wanna use auto like that, you should cast the right hand sight
 
     cout << "C3: " << c3.value << endl;
+    foo();
+    foo();
 
 
     return 0;
