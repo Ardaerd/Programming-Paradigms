@@ -105,5 +105,7 @@ int main()
     // f6 = f3; // It was an error. f6 should be constructed before to using assignment
     print(f1);
 
+    auto f6 = 10.0_frac;
+
     return 0;
 }
