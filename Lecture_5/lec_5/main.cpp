@@ -45,20 +45,9 @@ struct Vector3d {
 };
 
 template<typename Container, typename BusinessLogic>
-void transform(Container& v, BusinessLogic func) {
+void transform(Container& v, BusinessLogic& func) {
     func(v);  // implement BusinessLogic and gives it the container
 }
-
-
-// BusinessLogic
-struct IncrementBy1 {
-    void operator() (Vector3d& v) {
-        v.x++;
-        v.y++;
-        v.z++;
-    }
-};
-
 
 // BusinessLogic
 // This is a more generic way
@@ -71,15 +60,6 @@ struct IncrementByX {
         v.x += amount;
         v.y += amount;
         v.z += amount;
-    }
-};
-
-struct MultiplyBy2 {
-    // In the new C++ auto is equvelent with the Template in this situation
-    void operator() (auto& v) {
-        v.x *= 2;
-        v.y *= 2;
-        v.z *= 2;
     }
 };
 
@@ -103,6 +83,10 @@ int main()
     v();
     v(3);
 
+    // you don't need to write int for amount
+    // this is the lambada expression in C++
+    auto incrementBy22 = [amount = 22](auto& v) {v.x += amount; v.y += amount; v.z += amount;};
+
     // BusinessLogic
     auto incrementByX = IncrementByX(100);
     auto multiplyByX = MultiplyByX(3);
@@ -111,6 +95,8 @@ int main()
     transform(v,incrementByX);
     v();
     transform(v, multiplyByX);
+    v();
+    transform(v,incrementBy22);
     v();
 
     return 0;
