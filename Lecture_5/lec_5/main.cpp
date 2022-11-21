@@ -87,14 +87,11 @@ struct MultiplyBy2 {
 // This is a more generic way
 struct MultiplyByX {
     int amount;
-    MultiplyByX(int amount = 1) : amount(amount) { }
 
-    template<typename T>
-    void operator() (T& v) {
-        v.x *= amount;
-        v.y *= amount;
-        v.z *= amount;
-    }
+        MultiplyByX(int amount) : amount(amount) { }
+
+        template<typename T>
+        void operator() (T& v) { v.x*=amount; v.y*=amount; v.z*=amount; }
 };
 
 int main()
@@ -113,7 +110,7 @@ int main()
 
     transform(v,incrementByX);
     v();
-    transform(v, incrementByX);
+    transform(v, multiplyByX);
     v();
 
     return 0;
