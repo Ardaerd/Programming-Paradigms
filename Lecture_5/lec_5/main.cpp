@@ -46,7 +46,7 @@ struct Vector3d {
 
 template<typename Container, typename BusinessLogic>
 void transform(Container& v, BusinessLogic& func) {
-    func(v);  // implement BusinessLogic and gives it the container
+    func(v);  // using operator
 }
 
 // BusinessLogic
