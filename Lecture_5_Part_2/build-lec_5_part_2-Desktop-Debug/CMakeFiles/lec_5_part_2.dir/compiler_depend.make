@@ -200,8 +200,15 @@ CMakeFiles/lec_5_part_2.dir/main.cpp.o: /home/arda/Cs_321/Lecture_5_Part_2/lec_5
   /usr/include/c++/11/bits/stl_uninitialized.h \
   /usr/include/c++/11/bits/stl_vector.h \
   /usr/include/c++/11/bits/stl_bvector.h \
-  /usr/include/c++/11/bits/vector.tcc
+  /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/list \
+  /usr/include/c++/11/bits/stl_list.h \
+  /usr/include/c++/11/bits/allocated_ptr.h \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/bits/list.tcc
 
+
+/usr/include/c++/11/bits/stl_list.h:
 
 /usr/include/c++/11/bits/vector.tcc:
 
@@ -222,6 +229,8 @@ CMakeFiles/lec_5_part_2.dir/main.cpp.o: /home/arda/Cs_321/Lecture_5_Part_2/lec_5
 /usr/include/c++/11/bits/basic_ios.tcc:
 
 /usr/include/c++/11/bits/locale_facets.tcc:
+
+/usr/include/c++/11/bits/list.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
 
@@ -299,6 +308,8 @@ CMakeFiles/lec_5_part_2.dir/main.cpp.o: /home/arda/Cs_321/Lecture_5_Part_2/lec_5
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
+/usr/include/c++/11/ext/aligned_buffer.h:
+
 /usr/include/endian.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
@@ -338,6 +349,8 @@ CMakeFiles/lec_5_part_2.dir/main.cpp.o: /home/arda/Cs_321/Lecture_5_Part_2/lec_5
 /usr/include/c++/11/bits/exception_defines.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h:
+
+/usr/include/c++/11/list:
 
 /usr/include/c++/11/ext/string_conversions.h:
 
@@ -566,6 +579,8 @@ CMakeFiles/lec_5_part_2.dir/main.cpp.o: /home/arda/Cs_321/Lecture_5_Part_2/lec_5
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+/usr/include/c++/11/bits/allocated_ptr.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 

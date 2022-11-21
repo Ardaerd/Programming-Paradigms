@@ -160,4 +160,8 @@ CMakeFiles/lec_5_part_2.dir/main.cpp.o: \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc
+ /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/list.tcc
