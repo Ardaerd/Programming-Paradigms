@@ -60,17 +60,60 @@ struct IncrementBy1 {
 };
 
 
+// BusinessLogic
+// This is a more generic way
+struct IncrementByX {
+    int amount;
+    IncrementByX(int amount = 1) : amount(amount) { }
+
+    template<typename T>
+    void operator() (T& v) { // You can use auto also
+        v.x += amount;
+        v.y += amount;
+        v.z += amount;
+    }
+};
+
+struct MultiplyBy2 {
+    // In the new C++ auto is equvelent with the Template in this situation
+    void operator() (auto& v) {
+        v.x *= 2;
+        v.y *= 2;
+        v.z *= 2;
+    }
+};
+
+// BusinessLogic
+// This is a more generic way
+struct MultiplyByX {
+    int amount;
+    MultiplyByX(int amount = 1) : amount(amount) { }
+
+    template<typename T>
+    void operator() (T& v) {
+        v.x *= amount;
+        v.y *= amount;
+        v.z *= amount;
+    }
+};
+
 int main()
 {
     // Container
     auto v = Vector3d();
+
     // because of the operator()
     v();
     v(3);
 
-    auto incrementBy1 = IncrementBy1();
+    // BusinessLogic
+    auto incrementByX = IncrementByX(100);
+    auto multiplyByX = MultiplyByX(3);
 
-    transform(v, incrementBy1);
+
+    transform(v,incrementByX);
+    v();
+    transform(v, incrementByX);
     v();
 
     return 0;
