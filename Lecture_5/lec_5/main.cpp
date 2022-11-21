@@ -44,11 +44,34 @@ struct Vector3d {
 
 };
 
+template<typename Container, typename BusinessLogic>
+void transform(Container& v, BusinessLogic func) {
+    func(v);  // implement BusinessLogic and gives it the container
+}
+
+
+// BusinessLogic
+struct IncrementBy1 {
+    void operator() (Vector3d& v) {
+        v.x++;
+        v.y++;
+        v.z++;
+    }
+};
 
 
 int main()
 {
+    // Container
     auto v = Vector3d();
+    // because of the operator()
     v();
+    v(3);
+
+    auto incrementBy1 = IncrementBy1();
+
+    transform(v, incrementBy1);
+    v();
+
     return 0;
 }
