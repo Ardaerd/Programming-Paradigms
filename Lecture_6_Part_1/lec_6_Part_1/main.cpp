@@ -31,6 +31,15 @@ struct FibonacciGenerator {
     FibonacciGenerator() : a{1}, b{0} { }
     FibonacciGenerator(int a, int b) : a{a}, b{b} { }
 
+    // This is the OOP approach and it make sense
+    int give_me_next_value() {
+        auto retval = a + b;
+        a = b;
+        b = retval;
+        return retval;
+
+    }
+
 };
 
 // It is an free function bu it is not make sense
@@ -46,8 +55,8 @@ int main()
 {
     auto fg = FibonacciGenerator();
 
-    for (int i = 0; i < 10; i++)
-        cout << give_me_next_value(fg) << ", ";
+    for (int i = 0; i <= 10; i++)
+        cout << fg.give_me_next_value() << ", ";
     cout << endl;
 
     return 0;
