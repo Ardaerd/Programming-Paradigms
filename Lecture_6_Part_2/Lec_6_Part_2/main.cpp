@@ -13,14 +13,29 @@ using namespace std;
 
 int main()
 {
-    auto v = vector<int>{1,2,3,4,5};
+    auto v = list<int>{1,2,3,4,5};
 
-    // this is okay but silly
-    // because we are calculating the vector size for each iteration.
-    for (int i = 0; i < v.size(); i++)
-        v[i] += 10;
+    // This curly brackets means it is a local scope in the main
+    // it is creating everythin and when it is finished destruct the variables
+    {
+        // in this example list operation is costly
+        // this one is not working in list
+//        auto sz = v.size();
+//        for (int i = 0; i < sz; i++)
+//            v[i] += 10;
 
-    for (int i = 0; i < v.size(); i++)
-        cout << v[i] << ", ";
+        // instead of the above example use the below one
+        // because in this one we are using manipulation of pointer
+        for (auto it = v.begin(); it != v.end(); it++)
+            (*it) += 10;
+    }
+
+    {
+        for (auto& item : v)
+            cout << item << ' ';
+        cout << endl;
+
+    }
+
     return 0;
 }
