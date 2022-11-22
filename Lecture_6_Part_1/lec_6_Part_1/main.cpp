@@ -24,12 +24,13 @@ using namespace std;
 
 struct FibonacciGenerator {
 
-    int a;
-    int b;
+    // Referrencing the variables in the main function
+    int& a;
+    int& b;
 
     // this '{' is a new type of initilization and it has more strong type checking
-    FibonacciGenerator() : a{1}, b{0} { }
-    FibonacciGenerator(int a, int b) : a{a}, b{b} { }
+    // FibonacciGenerator() : a{1}, b{0} { }
+    FibonacciGenerator(int& a, int& b) : a{a}, b{b} { }
 
     // This is the OOP approach and it make sense
     // you can use operator() () for converting the nextBalue function to unname function
@@ -54,11 +55,17 @@ int give_me_next_value(FibonacciGenerator& fgref) {
 
 int main()
 {
-    auto fg = FibonacciGenerator();
+    int k = 1;
+    int l = 0;
+
+    auto fg = FibonacciGenerator(k,l);
 
     for (int i = 0; i <= 10; i++)
         cout << fg() << ", ";
     cout << endl;
+
+    cout << "k: " << k << endl;
+    cout << "l: " << l << endl;
 
     return 0;
 }
