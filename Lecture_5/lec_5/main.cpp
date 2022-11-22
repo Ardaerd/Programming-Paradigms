@@ -11,8 +11,6 @@
 
 // unified/universal construction:
 //   stricter construction with {} instead of (),
-//   designated initializers
-//   initializer_list support for ctors
 
 #include <iostream>
 

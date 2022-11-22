@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/lec_6_Part_1.dir/main.cpp.o -o lec_6_Part_1 
