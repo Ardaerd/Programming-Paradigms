@@ -15,6 +15,8 @@ int main()
 {
     auto v = vector<int>{1,2,3,4,5};
 
+    // this is okay but silly
+    // because we are calculating the vector size for each iteration.
     for (int i = 0; i < v.size(); i++)
         v[i] += 10;
 
