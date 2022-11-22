@@ -32,7 +32,8 @@ struct FibonacciGenerator {
     FibonacciGenerator(int a, int b) : a{a}, b{b} { }
 
     // This is the OOP approach and it make sense
-    int give_me_next_value() {
+    // you can use operator() () for converting the nextBalue function to unname function
+    int operator() () {
         auto retval = a + b;
         a = b;
         b = retval;
@@ -56,7 +57,7 @@ int main()
     auto fg = FibonacciGenerator();
 
     for (int i = 0; i <= 10; i++)
-        cout << fg.give_me_next_value() << ", ";
+        cout << fg() << ", ";
     cout << endl;
 
     return 0;
