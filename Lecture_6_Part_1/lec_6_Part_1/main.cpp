@@ -44,15 +44,6 @@ struct FibonacciGenerator {
 
 };
 
-// It is an free function bu it is not make sense
-int give_me_next_value(FibonacciGenerator& fgref) {
-    auto retval = fgref.a + fgref.b;
-    fgref.a = fgref.b;
-    fgref.b = retval;
-    return retval;
-
-}
-
 int main()
 {
     int k = 1;
@@ -60,10 +51,27 @@ int main()
 
     auto fg = FibonacciGenerator(k,l);
 
+    // implementing NextValue function with the lambada way
+    // In the lambda expression default is const.
+    // Therefore, we should write mutable for changing the variables
+    auto fg_lambda = [&a=k, &b=l]() mutable {
+        auto retval = a + b;
+        a = b;
+        b = retval;
+        return retval;
+    };
+
     for (int i = 0; i <= 10; i++)
         cout << fg() << ", ";
     cout << endl;
 
+    cout << "Lambada: " << endl;
+
+    for (int i = 0; i <= 10; i++)
+        cout << fg_lambda() << ", ";
+    cout << endl;
+
+    // k and l are changing also because we are reffering them in the Fibonacci struct
     cout << "k: " << k << endl;
     cout << "l: " << l << endl;
 
