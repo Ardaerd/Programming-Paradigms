@@ -10,10 +10,18 @@
 using namespace std;
 
 
-// these all is available in compile time
-template<int i, int j>
+
+
+template<int first, int ... rest>
 struct Multiply {
-  static const int value = i * j;
+  static const int value = first * Multiply<rest...>::value;
+};
+
+
+// these all is available in compile time
+template<int first, int second>
+struct Multiply <first,second> {
+  static const int value = first * second;
 };
 
 
@@ -28,13 +36,13 @@ struct Multiply_11_22 {
 int main()
 {
     // if you don't have variable which is vary in main function it is compile time
-    int i1 = 20 * 2; // this is calculated in compile time
+    int i1 = 20 * 2 * 5 * 3; // this is calculated in compile time
     cout << "i1 " << i1 << endl;
 
     int i2 = Multiply_20_2::value;
     cout << "i2 " << i2 << endl;
 
-    int i3 = Multiply<20,2>::value;
+    int i3 = Multiply<20,2,5,3>::value;
     cout << "i3 " << i3 << endl;
 
 
