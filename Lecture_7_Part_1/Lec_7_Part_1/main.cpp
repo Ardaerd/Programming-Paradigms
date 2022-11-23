@@ -51,5 +51,16 @@ int main()
     func2();
     func2();
 
+    // lambda approach for non-pure function
+    // default is const for lambda
+    auto func3 = [i=0] () mutable {
+        cout << i << endl;
+        i++;
+    };
+
+    func3();
+    func3();
+    func3();
+
     return 0;
 }
