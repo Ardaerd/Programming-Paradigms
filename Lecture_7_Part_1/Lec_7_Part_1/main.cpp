@@ -18,9 +18,13 @@
 
 using namespace std;
 
-int i = 0;
 
+// This is not a pure function
+// because it is not depend only function's input(parameters)
 void func() {
+    // it is depend the internal state
+    static int i = 0; // non-pure function because it has a internal state
+
     cout << i << endl;
     i++;
 }
@@ -28,6 +32,7 @@ void func() {
 
 int main()
 {
+    // it has a side effect the output is not same all the time
     func();
     func();
     func();
