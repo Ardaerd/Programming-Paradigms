@@ -52,9 +52,23 @@ auto filter(const T& container, auto func) {
 }
 
 
+template<typename Container>
+auto accumulate(const Container& container, auto init, auto func) {
+    auto sum = init;
+
+    for (const auto& item : container)
+        sum = func(sum,item);
+
+    return sum;
+}
+
+
 int main()
 {
     auto v = list<int>{1,2,3,4,5};
+
+    auto sum = accumulate(v, 0.0, [](auto sum, auto newitem) { return sum + newitem; });
+    cout << "Sum: " << sum << endl;
 
     transform_inline(v, [](auto& item) { item += 10; }); // output: 11 12 13 14 15
 
@@ -75,9 +89,7 @@ int main()
     cout << endl;
 
     cout << "Filtered: " << endl;
-    for (auto& item : v_filtered)
-        cout << item << " ";
-    cout << endl;
+    print(v_filtered);
 
     return 0;
 }
