@@ -21,21 +21,21 @@ using namespace std;
 
 // This is not a pure function
 // because it is not depend only function's input(parameters)
-void func() {
+void func(int i) {
     // it is depend the internal state
-    static int i = 0; // non-pure function because it has a internal state
+    // static int i = 0; // non-pure function because it has a internal state
 
     cout << i << endl;
-    i++;
 }
 
 
 int main()
 {
-    // it has a side effect the output is not same all the time
-    func();
-    func();
-    func();
+    int i = 0;
+    // now, it is a pure function because it is depend on the parameter of the function
+    func(i++);
+    func(i++);
+    func(i++);
 
     return 0;
 }
