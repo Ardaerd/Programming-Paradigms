@@ -19,23 +19,37 @@
 using namespace std;
 
 
+struct Func {
+    int i = 0; // state
+
+    // It is depend on the state. So, it is non-pure function
+    void operator() () {
+        cout << i << endl;
+        i++;
+    }
+};
+
 // This is not a pure function
 // because it is not depend only function's input(parameters)
-void func(int i) {
+void func() {
     // it is depend the internal state
-    // static int i = 0; // non-pure function because it has a internal state
+     static int i = 0; // non-pure function because it has a internal state
 
     cout << i << endl;
+    i++;
 }
 
 
 int main()
 {
-    int i = 0;
-    // now, it is a pure function because it is depend on the parameter of the function
-    func(i++);
-    func(i++);
-    func(i++);
+    func();
+    func();
+    func();
+
+    auto func2 = Func{};
+    func2();
+    func2();
+    func2();
 
     return 0;
 }
