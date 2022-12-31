@@ -16,6 +16,10 @@ struct Painting {
     string painter;
 };
 
+auto multiply_by(int what) {
+    return [what](int k) { return k * what; };
+}
+
 bool greater_than(int i, int j) { return i > j; }
 bool greater_than_1900(int i) { return i > 1900; }
 
@@ -76,6 +80,16 @@ auto transform(const Container& container, Func func) {
     return v;
 }
 
+auto compose(auto func1, auto func2) {
+    return [func1,func2](auto input) {
+        return func2(func1(input));
+    };
+}
+
+auto operator |(auto func1,auto func2) {
+    return compose(func1,func2);
+}
+
 void print(const auto& container) {
 
     for (const auto& item : container)
@@ -109,8 +123,14 @@ int main()
     auto v_painter = transform(v,get_painter());
     print(v_painter);
 
-    auto v_year = transform(v,get_year());
+    auto v_year = transform(v,compose(get_year(),greater_than_lambda(1900)));
     print(v_year);
+
+    auto v_ifyearafter1900 = transform(
+                v,
+                get_year() | greater_than_lambda(1900) | multiply_by(1000)
+                );
+    print(v_ifyearafter1900);
 
     auto v_name = vector<string>{
         "Picasso",
