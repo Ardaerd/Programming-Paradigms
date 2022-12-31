@@ -1,0 +1,3 @@
+/home/arda/Cs_321/Lecture_7_Part_4/build-Lecture_7_Part_4-Desktop-Debug/CMakeFiles/Lecture_7_Part_4.dir
+/home/arda/Cs_321/Lecture_7_Part_4/build-Lecture_7_Part_4-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/arda/Cs_321/Lecture_7_Part_4/build-Lecture_7_Part_4-Desktop-Debug/CMakeFiles/rebuild_cache.dir

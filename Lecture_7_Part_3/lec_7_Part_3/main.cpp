@@ -15,7 +15,7 @@ template <int k>      struct Divide<k,0> { static const int value = 0; };
 
 int main()
 {
-    int i1 = 20 / 3;
+    int i1 = (20 / 3);
     cout << "i1: " << i1 << endl;
 
     int i2 = Divide<20,3>::value;

@@ -1,0 +1,3 @@
+/home/arda/Cs_321/build-hw-Desktop-Debug/CMakeFiles/hw.dir
+/home/arda/Cs_321/build-hw-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/arda/Cs_321/build-hw-Desktop-Debug/CMakeFiles/rebuild_cache.dir

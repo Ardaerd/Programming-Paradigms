@@ -42,7 +42,7 @@ int main()
     int i2 = Multiply_20_2::value;
     cout << "i2 " << i2 << endl;
 
-    int i3 = Multiply<20,2,5,3>::value;
+    int i3 = Multiply<20,2,3,4>::value;
     cout << "i3 " << i3 << endl;
 
 

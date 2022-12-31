@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/lec_8.dir/main.cpp.o -o lec_8 
