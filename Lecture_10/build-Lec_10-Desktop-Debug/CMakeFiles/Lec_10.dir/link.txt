@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/Lec_10.dir/main.cpp.o -o Lec_10 
