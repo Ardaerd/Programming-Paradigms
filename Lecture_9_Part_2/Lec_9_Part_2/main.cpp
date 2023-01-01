@@ -54,8 +54,21 @@ auto compose(auto f, auto g) {
     };
 }
 
+template<typename T>
+concept IsContainer = requires(T t) {
+        t.begin();
+        t.end();
+        t.size();
+        t.begin()++;
+        };
+
 auto operator|(auto f, auto g) {
     return compose(f,g);
+}
+
+template<IsContainer T>
+auto operator|(T input, auto f) {
+    return f(input);
 }
 
 int main()
@@ -76,8 +89,12 @@ int main()
     auto filter_rule = [](const auto& item) { return item > 20; };
     auto filter_rule2 = [](const auto& item) { return item < 30; };
 
-    auto composition = filter(filter_rule) | filter(filter_rule2) | accumulate(adder(),0.0f);
-    auto result = composition(v);
+    //auto composition = filter(filter_rule) | filter(filter_rule2) | accumulate(adder(),0.0f);
+    //auto result = composition(v);
+
+    auto result = v | filter(filter_rule)
+                    | filter(filter_rule2)
+                    | accumulate(adder(),0.0f);
 
 
     cout << result << endl;
