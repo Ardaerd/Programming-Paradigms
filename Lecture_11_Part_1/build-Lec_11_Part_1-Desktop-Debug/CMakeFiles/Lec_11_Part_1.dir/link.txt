@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/Lec_11_Part_1.dir/main.cpp.o -o Lec_11_Part_1 
